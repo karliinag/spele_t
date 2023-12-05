@@ -40,11 +40,84 @@ def checkWinner():
         btn3["text"]=="X" and btn5["text"]=="X" and btn7["text"]=="X"):
         winner=True
         messagebox.showinfo("TicTacToe","SpēlētājsX ir uzvarētājs")
+        def disableButtons(): #spēle beidzas, pogas izslēgtas
+            btn1.config(state=DISABLED)
+            btn2.config(state=DISABLED)
+            btn3.config(state=DISABLED)
+            btn4.config(state=DISABLED)
+            btn5.config(state=DISABLED)
+            btn6.config(state=DISABLED)
+            btn7.config(state=DISABLED)
+            btn8.config(state=DISABLED)
+            btn9.config(state=DISABLED)
+
+            return 0
+        winner=True
+        disableButtons()
+
     elif(btn1["text"]=="O" and btn2["text"]=="O"and btn3["text"]=="O" or btn4["text"]=="O" and btn5["text"]=="O" and btn6["text"]=="O" or btn7["text"]=="O" and btn8["text"]=="0" and btn9["text"]=="O" or btn1["text"]=="O" and btn4["text"]=="O" and btn7["text"]=="O" or btn2["text"]=="O"and btn5["text"]=="O" and btn8["text"]=="O" or btn3["text"]=="O" and btn6["text"]=="O" and btn9["text"]=="O" or btn1["text"]=="O" and btn5["text"]=="O" and btn9["text"]=="O" or btn3["text"]=="O" and btn5["text"]=="O" and btn7["text"]=="O"):
         winner=True
         messagebox.showinfo("TicTacToe","SpēlētājsO ir uzvarētājs")
+        def disableButtons(): #spēle beidzas, pogas izslēgtas
+            btn1.config(state=DISABLED)
+            btn2.config(state=DISABLED)
+            btn3.config(state=DISABLED)
+            btn4.config(state=DISABLED)
+            btn5.config(state=DISABLED)
+            btn6.config(state=DISABLED)
+            btn7.config(state=DISABLED)
+            btn8.config(state=DISABLED)
+            btn9.config(state=DISABLED)
+
+            return 0
+        winner=True
+        disableButtons()
+
     elif count==9 and winner==False:
         messagebox.showinfo("TicTacToe","Neizšķirts")
+        def disableButtons(): #spēle beidzas, pogas izslēgtas
+            btn1.config(state=DISABLED)
+            btn2.config(state=DISABLED)
+            btn3.config(state=DISABLED)
+            btn4.config(state=DISABLED)
+            btn5.config(state=DISABLED)
+            btn6.config(state=DISABLED)
+            btn7.config(state=DISABLED)
+            btn8.config(state=DISABLED)
+            btn9.config(state=DISABLED)
+
+            return 0
+        winner=True
+        disableButtons()
+
+def reset():
+    btn1.config(state=NORMAL)
+    btn2.config(state=NORMAL)
+    btn3.config(state=NORMAL)
+    btn4.config(state=NORMAL)
+    btn5.config(state=NORMAL)
+    btn6.config(state=NORMAL)
+    btn7.config(state=NORMAL)
+    btn8.config(state=NORMAL)
+    btn9.config(state=NORMAL)
+    btn1["text"]=""
+    btn2["text"]=""
+    btn3["text"]=""
+    btn4["text"]=""
+    btn5["text"]=""
+    btn6["text"]=""
+    btn7["text"]=""
+    btn8["text"]=""
+    btn9["text"]=""
+
+    global winner, count, speletajsX
+    winner=False
+    count=0
+    speletajsX=True
+    return 0
+   
+
+
 
 #pogu izveidošana
 btn1=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn1))
@@ -56,6 +129,21 @@ btn6=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda
 btn7=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn7))
 btn8=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn8))
 btn9=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn9))
+
+galvenaIzvelne=Menu(mansLogs)#izveido galveno izvēlni
+mansLogs.config(menu=galvenaIzvelne)#pievieno galvenajam logam
+opcijas=Menu(galvenaIzvelne, tearoff=False)
+galvenaIzvelne.add_cascade(label="Opcijas",menu=opcijas)
+opcijas.add_command(label="Jauna spēle",command=reset)
+opcijas.add_command(label="Iziet",command=mansLogs.quit)
+def infoLogs():
+    jaunsLogs=Toplevel()
+    jaunsLogs.title('Info par programmu')
+    jaunsLogs.geometry("300x300")
+    apraksts=Label(jaunsLogs,text='Spēles noteikumi')
+    apraksts.grid(row=0,column=0)
+    return 0
+galvenaIzvelne.add_command(label="Par programmu",command=infoLogs) 
 
 btn1.grid(row=0,column=0)
 btn2.grid(row=0,column=1)
