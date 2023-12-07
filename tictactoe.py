@@ -5,7 +5,7 @@ from tkinter import font
 from turtle import width #paziņojumi, ieteikumi
 mansLogs=Tk()#loga objekts
 mansLogs.title("TicTacToe")
-
+mansLogs.geometry("300x300")
 speletajsX=True
 count=0
 
@@ -120,15 +120,16 @@ def reset():
 
 
 #pogu izveidošana
-btn1=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn1))
-btn2=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn2))
-btn3=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn3))
-btn4=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn4))
-btn5=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn5))
-btn6=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn6))
-btn7=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn7))
-btn8=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn8))
-btn9=Button(mansLogs,text="",width=6,height=3,font=("Helvica,24"),command=lambda:btnClick(btn9))
+btn1=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#CDC0B0",bd=10,command=lambda:btnClick(btn1))
+btn2=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#8B8378",bd=10,command=lambda:btnClick(btn2))
+btn3=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#CDC0B0",bd=10,command=lambda:btnClick(btn3))
+btn4=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#8B8378",bd=10,command=lambda:btnClick(btn4))
+btn5=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#CDC0B0",bd=10,command=lambda:btnClick(btn5))
+btn6=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#8B8378",bd=10,command=lambda:btnClick(btn6))
+btn7=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#CDC0B0",bd=10,command=lambda:btnClick(btn7))
+btn8=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#8B8378",bd=10,command=lambda:btnClick(btn8))
+btn9=Button(mansLogs,text="",width=8,height=4,font=("Helvica,24"),bg="#CDC0B0",bd=10,command=lambda:btnClick(btn9))
+
 
 galvenaIzvelne=Menu(mansLogs)#izveido galveno izvēlni
 mansLogs.config(menu=galvenaIzvelne)#pievieno galvenajam logam
@@ -139,9 +140,19 @@ opcijas.add_command(label="Iziet",command=mansLogs.quit)
 def infoLogs():
     jaunsLogs=Toplevel()
     jaunsLogs.title('Info par programmu')
-    jaunsLogs.geometry("300x300")
-    apraksts=Label(jaunsLogs,text='Spēles noteikumi')
+    jaunsLogs.geometry("600x200")
+    apraksts=Label(jaunsLogs,text='Spēles noteikumi',bg="#EEDFCC")
     apraksts.grid(row=0,column=0)
+    apraksts=Label(jaunsLogs,text='Spēle or paredzēta 2 spēlētājiem, kurā viens ir O un otrs ir X.')
+    apraksts.grid(row=1,column=0)
+    apraksts=Label(jaunsLogs,text="Spēlētāja uzdevums ir novietot 3 savas izvēlētas formas vienā rindā.")
+    apraksts.grid(row=2,column=0)
+    apraksts=Label(jaunsLogs,text="Šī 3 formu rinda var tikt novietota jebkurā rindā horizontāli, vertikāli vai diognāli.")
+    apraksts.grid(row=3,column=0)
+    apraksts=Label(jaunsLogs,text="Spēle beidzas, kad viens no spēlētājiem ir novietojis 3 formaspēc iepriekš minētājiem noteikumiem.")
+    apraksts.grid(row=4,column=0)
+    apraksts=Label(jaunsLogs,text="Ja nevienam no spēlētājiem neidzodas savas 3 formas novietot rindā spēle beidzas ar NEIZŠĶIRTU.")
+    apraksts.grid(row=5,column=0)
     return 0
 galvenaIzvelne.add_command(label="Par programmu",command=infoLogs) 
 
